@@ -276,21 +276,21 @@ namespace Alroy.ConsoleApp
             #endregion
 
             #region 拼json
-            string supplier = "supplier";
-            string inquiryHumanName = "inquiryHumanName";
-            string inquiryEndDate = DateTime.Now.ToString("yyyy-MM-dd");
-            string buyerName = "buyerName";
-            string helpMobile = "helpMobile";
+            //string supplier = "supplier";
+            //string inquiryHumanName = "inquiryHumanName";
+            //string inquiryEndDate = DateTime.Now.ToString("yyyy-MM-dd");
+            //string buyerName = "buyerName";
+            //string helpMobile = "helpMobile";
 
-            Hashtable hs = new Hashtable();
-            hs.Add("supplier", supplier);
-            hs.Add("inquiryHumanName", inquiryHumanName);
-            hs.Add("inquiryEndDate", inquiryEndDate);
-            hs.Add("buyerName", buyerName);
-            hs.Add("helpMobile", helpMobile);
+            //Hashtable hs = new Hashtable();
+            //hs.Add("supplier", supplier);
+            //hs.Add("inquiryHumanName", inquiryHumanName);
+            //hs.Add("inquiryEndDate", inquiryEndDate);
+            //hs.Add("buyerName", buyerName);
+            //hs.Add("helpMobile", helpMobile);
 
-            string strHs = JsonConvert.SerializeObject(hs);
-            Console.WriteLine(strHs);
+            //string strHs = JsonConvert.SerializeObject(hs);
+            //Console.WriteLine(strHs);
             #endregion
 
             #region 实例
@@ -509,7 +509,18 @@ namespace Alroy.ConsoleApp
 
             #endregion
 
-            //Console.WriteLine("1");
+            //var time = "201704171012";
+
+            //var time = "201704171012";
+            //Console.WriteLine(time.Length);
+            //DateTime dt1 = DateTime.ParseExact(time, "yyyyMMddHHmm", System.Globalization.CultureInfo.CurrentCulture);
+
+            string a = "2021/2/3 10:45:13";
+            string b = "2021/2/3 9:01:00";
+            TimeSpan tsDte =Convert.ToDateTime(a) - Convert.ToDateTime(b);
+            Console.WriteLine(tsDte.Hours);
+            Console.WriteLine(tsDte.Minutes);
+            Console.WriteLine(tsDte.ToString());
             Console.ReadKey();
 
 
