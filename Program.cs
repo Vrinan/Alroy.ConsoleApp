@@ -37,6 +37,18 @@ namespace Alroy.ConsoleApp
             //Console.WriteLine("日期加一天为"+ dt.AddDays(1));
             //Console.WriteLine("日期减一天为" + dt.AddDays(-1));
 
+            //var time = "201704171012";
+            //Console.WriteLine(time.Length);
+            //DateTime dt1 = DateTime.ParseExact(time, "yyyyMMddHHmm", System.Globalization.CultureInfo.CurrentCulture);
+
+            //string a = "2021/2/3 10:45:13";
+            //string b = "2021/2/3 9:01:00";
+            //TimeSpan tsDte =Convert.ToDateTime(a) - Convert.ToDateTime(b);
+            //Console.WriteLine(tsDte.Hours);
+            //Console.WriteLine(tsDte.Minutes);
+            //Console.WriteLine(tsDte.ToString());
+            //Console.ReadKey();
+
             #region str转日期
             //string dt = "2020/6/30 8:00:00";
             //Console.WriteLine(Convert.ToDateTime(dt).ToString());
@@ -507,22 +519,22 @@ namespace Alroy.ConsoleApp
             //}
             #endregion
 
+            #region url下载图片
+
             #endregion
 
-            //var time = "201704171012";
+            #endregion
 
-            //var time = "201704171012";
-            //Console.WriteLine(time.Length);
-            //DateTime dt1 = DateTime.ParseExact(time, "yyyyMMddHHmm", System.Globalization.CultureInfo.CurrentCulture);
-
-            string a = "2021/2/3 10:45:13";
-            string b = "2021/2/3 9:01:00";
-            TimeSpan tsDte =Convert.ToDateTime(a) - Convert.ToDateTime(b);
-            Console.WriteLine(tsDte.Hours);
-            Console.WriteLine(tsDte.Minutes);
-            Console.WriteLine(tsDte.ToString());
+            #region arrayList
+            string a = "7b6a9400-7c90-11eb-a547-00163e08851a,7c165fd1-7c90-11eb-a547-00163e08851a,74cb3ff6-7c90-11eb-a547-00163e08851a";
+            List<string> list = new List<string>(a.Split(','));
+            Console.WriteLine(list.Count);
+            foreach(var item in list)
+            {
+                Console.WriteLine(item);
+            }
             Console.ReadKey();
-
+            #endregion
 
 
 
