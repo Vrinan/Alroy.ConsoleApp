@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -351,14 +352,27 @@ namespace Alroy.ConsoleApp
         }
         #endregion
 
-        #region SCP爬虫-v1
+        #region 字符串从a开始到b结束截断
         public static string InterceptStr(string content, string start, string end)
         {
             var posStart = content.IndexOf(start);
             var posEnd = content.IndexOf(end);
             return content.Substring(posStart, (posEnd - posStart + end.Length));
         }
+        #endregion
 
+        #region 获取网址的htm
+        public static string RetHtml(Uri url)
+        {
+            string data = string.Empty;
+            HttpClient hc = new HttpClient();
+            var response = hc.GetAsync(url).Result;
+            data = response.Content.ReadAsStringAsync().Result.ToString();
+            return data;
+        }
+        #endregion
+
+        #region 把数字转换成三位001
         public string ChangeToThreeNum(string num)
         {
             switch (num.Length)
@@ -379,7 +393,21 @@ namespace Alroy.ConsoleApp
         }
         #endregion
 
-
+        #region 把数字转换成n位
+        public static string ChangeToSevralNum(int num, int count)
+        {
+            //获取原长度
+            string strNum = num.ToString();
+            int oriCount = strNum.Length;
+            //原数字前需要拼接的0
+            int finalCount = count - oriCount;
+            for (int i = 0; i < finalCount; i++)
+            {
+                strNum = "0" + strNum;
+            }
+            return strNum;
+        }
+        #endregion
 
     }
 }

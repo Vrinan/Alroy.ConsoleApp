@@ -519,24 +519,74 @@ namespace Alroy.ConsoleApp
             //}
             #endregion
 
-            #region url下载图片
+            #region 通过url下载图片
+            var url = new Uri("http://www.xiuren.org");
+            var url1 = new Uri("http://www.xiuren.org/tag/%E7%99%BD%E8%99%8E.html");
+            var url2 = new Uri("http://www.xiuren.org/XiuRen-N02345.html");
+            string html = CommonTools.RetHtml(url2);
+            int count = html.Split("photoThum").Length - 1;
+            //Console.WriteLine(html);
+            Console.WriteLine("获取到" + count + "张图片");
+            for (int i = 1; i <= count; i++)
+            {
+                string sequ = CommonTools.ChangeToSevralNum(i, 4);
+                //var webUrl = url2 + "/" + sequ + ".jpg";
+                var webUrl = "http://www.xiuren.org/xiuren2/XiuRen-N02345" + "/" + sequ + ".jpg";
+                Console.WriteLine(webUrl);
 
+                #region 下载部分
+                string LocalPath = @"E:\Reptile\";
+                string fileName = DateTime.Now.ToString("MM.dd.HH.mm") + sequ + ".jpg";
+                //http://www.xiuren.org/XiuRen-N02345.html/0001.jpg
+                //http://www.xiuren.org/xiuren2/XiuRen-N02345/0001.jpg
+
+                if (File.Exists(LocalPath + fileName))
+                {
+                    File.Delete(LocalPath + fileName);
+                }
+                if (Directory.Exists(LocalPath) == false)
+                {
+                    Directory.CreateDirectory(LocalPath);
+                }
+
+                var client = new WebClient();
+                client.DownloadFile(webUrl, LocalPath + fileName);
+                #endregion
+            }
+
+
+
+            //string fileName = "1.jpg";
+            //string LocalPath = @"E:\Reptile\";
+            //string WebUrl = "http://www.xiuren.org/xiuren2/XiuRen-N02345/0001.jpg";
+
+            //if (File.Exists(LocalPath + fileName))
+            //{
+            //    File.Delete(LocalPath + fileName);
+            //}
+            //if (Directory.Exists(LocalPath) == false)
+            //{
+            //    Directory.CreateDirectory(LocalPath);
+            //}
+
+            //var client = new WebClient();
+            //client.DownloadFile(WebUrl, LocalPath + fileName);
+
+            Console.ReadKey();
             #endregion
 
             #endregion
 
             #region arrayList
-            string a = "7b6a9400-7c90-11eb-a547-00163e08851a,7c165fd1-7c90-11eb-a547-00163e08851a,74cb3ff6-7c90-11eb-a547-00163e08851a";
-            List<string> list = new List<string>(a.Split(','));
-            Console.WriteLine(list.Count);
-            foreach(var item in list)
-            {
-                Console.WriteLine(item);
-            }
-            Console.ReadKey();
+            //string a = "7b6a9400-7c90-11eb-a547-00163e08851a,7c165fd1-7c90-11eb-a547-00163e08851a,74cb3ff6-7c90-11eb-a547-00163e08851a";
+            //List<string> list = new List<string>(a.Split(','));
+            //Console.WriteLine(list.Count);
+            //foreach(var item in list)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //Console.ReadKey();
             #endregion
-
-
 
         }
     }
