@@ -556,21 +556,21 @@ namespace Alroy.ConsoleApp
 
 
 
-            ////string fileName = "1.jpg";
-            ////string LocalPath = @"E:\Reptile\";
-            ////string WebUrl = "http://www.xiuren.org/xiuren2/XiuRen-N02345/0001.jpg";
+            //string fileName = "1.jpg";
+            //string LocalPath = @"E:\Reptile\";
+            //string WebUrl = "http://www.xiuren.org/xiuren2/XiuRen-N02345/0001.jpg";
 
-            ////if (File.Exists(LocalPath + fileName))
-            ////{
-            ////    File.Delete(LocalPath + fileName);
-            ////}
-            ////if (Directory.Exists(LocalPath) == false)
-            ////{
-            ////    Directory.CreateDirectory(LocalPath);
-            ////}
+            //if (File.Exists(LocalPath + fileName))
+            //{
+            //    File.Delete(LocalPath + fileName);
+            //}
+            //if (Directory.Exists(LocalPath) == false)
+            //{
+            //    Directory.CreateDirectory(LocalPath);
+            //}
 
-            ////var client = new WebClient();
-            ////client.DownloadFile(WebUrl, LocalPath + fileName);
+            //var client = new WebClient();
+            //client.DownloadFile(WebUrl, LocalPath + fileName);
 
             //Console.ReadKey();
             #endregion
@@ -595,14 +595,46 @@ namespace Alroy.ConsoleApp
             //AngelSharpModel.Method1();
             //AngelSharpModel.Method2();
 
-            AngelSharpModel.callMethod();
+            //AngelSharpModel.callMethod();
 
+
+            //Console.ReadKey();
+            #endregion
+
+            string[] CbfsList = { };
+            string text = "脱硫,脱硝,除尘,水务,氢能,光热,固废,环保其他类";
+            text = text.Replace("脱硫", "01");
+            text = text.Replace("脱硝", "02");
+            text = text.Replace("除尘", "03");
+            text = text.Replace("水务", "04");
+            text = text.Replace("氢能", "05");
+            text = text.Replace("光热", "06");
+            text = text.Replace("固废", "07");
+            text = text.Replace("环保其他类", "08");
+            Console.WriteLine(text);
+
+            ArrayList al = new ArrayList();
+            al.Add(3);
+            al.Add(14);
+            al.Add(27);
+            Console.WriteLine(Convert.ToInt32(al[0]));
+
+            string str = "20比索";
+            string str1 = "123.990";
+
+            double d1 = 0;
+            double.TryParse(str, out d1);
+
+            double d2 = 0;
+            double.TryParse(str1, out d2);
+
+            Console.WriteLine(d1);
+            Console.WriteLine(d2);
 
             Console.ReadKey();
-            #endregion
 
         }
 
-        
+
     }
 }
