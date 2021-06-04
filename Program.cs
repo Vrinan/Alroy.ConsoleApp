@@ -241,8 +241,6 @@ namespace Alroy.ConsoleApp
             //Task.Factory.StartNew(() => Console.Write("123"));
             #endregion
 
-            #region 其他
-
             #region GUID() 32位与36位互相转换
             //string str = "0019c481e7df46c896efc812133973f3";
             //Console.WriteLine(Guid.Parse(str).ToString("D"));
@@ -277,8 +275,6 @@ namespace Alroy.ConsoleApp
             //    Console.WriteLine("     <p>sidwb.</p>");
             //    Console.WriteLine("</article>");
             //}
-            #endregion
-
             #endregion
 
             #region 验证-ValidatorHelper
@@ -601,36 +597,43 @@ namespace Alroy.ConsoleApp
             //Console.ReadKey();
             #endregion
 
-            string[] CbfsList = { };
-            string text = "脱硫,脱硝,除尘,水务,氢能,光热,固废,环保其他类";
-            text = text.Replace("脱硫", "01");
-            text = text.Replace("脱硝", "02");
-            text = text.Replace("除尘", "03");
-            text = text.Replace("水务", "04");
-            text = text.Replace("氢能", "05");
-            text = text.Replace("光热", "06");
-            text = text.Replace("固废", "07");
-            text = text.Replace("环保其他类", "08");
-            Console.WriteLine(text);
+            //string[] CbfsList = { };
+            //string text = "脱硫,脱硝,除尘,水务,氢能,光热,固废,环保其他类";
+            //text = text.Replace("脱硫", "01");
+            //text = text.Replace("脱硝", "02");
+            //text = text.Replace("除尘", "03");
+            //text = text.Replace("水务", "04");
+            //text = text.Replace("氢能", "05");
+            //text = text.Replace("光热", "06");
+            //text = text.Replace("固废", "07");
+            //text = text.Replace("环保其他类", "08");
+            //Console.WriteLine(text);
 
-            ArrayList al = new ArrayList();
-            al.Add(3);
-            al.Add(14);
-            al.Add(27);
-            Console.WriteLine(Convert.ToInt32(al[0]));
+            //ArrayList al = new ArrayList();
+            //al.Add(3);
+            //al.Add(14);
+            //al.Add(27);
+            //Console.WriteLine(Convert.ToInt32(al[0]));
 
-            string str = "20比索";
-            string str1 = "123.990";
+            //string str = "20比索";
+            //string str1 = "123.990";
 
-            double d1 = 0;
-            double.TryParse(str, out d1);
+            //double d1 = 0;
+            //double.TryParse(str, out d1);
 
-            double d2 = 0;
-            double.TryParse(str1, out d2);
+            //double d2 = 0;
+            //double.TryParse(str1, out d2);
 
-            Console.WriteLine(d1);
-            Console.WriteLine(d2);
+            //Hashtable hs = new Hashtable();
+            //hs.Add("Id", "123421");
+            //hs.Add("Name", "2222");
 
+
+
+            string a = "71de620d-7c90-11eb-a547-00163e08851a,714efc24-7c90-11eb-a547-00163e08851a";
+            string[] str = a.Split(",");
+            Console.WriteLine(str.Length);
+            Console.WriteLine(str[0]);
             Console.ReadKey();
 
         }
