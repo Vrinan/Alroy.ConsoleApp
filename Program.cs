@@ -13,6 +13,8 @@ using Newtonsoft.Json.Linq;
 using System.Net;
 using Power.Global;
 using System.Drawing;
+using ThoughtWorks.QRCode;
+using ThoughtWorks.QRCode.Codec.Data;
 
 namespace Alroy.ConsoleApp
 {
@@ -228,14 +230,14 @@ namespace Alroy.ConsoleApp
             #endregion
 
             #region 获取图片宽高
-            using (FileStream fs = new FileStream(@"E:\Reptile\yj.jpg", FileMode.Open, FileAccess.Read))
-            {
-                System.Drawing.Image imageOrig = System.Drawing.Image.FromStream(fs);
-                int width = imageOrig.Width;
-                int height = imageOrig.Height;
-                Console.WriteLine("width:" + width);
-                Console.WriteLine("height:" + height);
-            }
+            //using (FileStream fs = new FileStream(@"E:\Reptile\yj.jpg", FileMode.Open, FileAccess.Read))
+            //{
+            //    System.Drawing.Image imageOrig = System.Drawing.Image.FromStream(fs);
+            //    int width = imageOrig.Width;
+            //    int height = imageOrig.Height;
+            //    Console.WriteLine("width:" + width);
+            //    Console.WriteLine("height:" + height);
+            //}
             #endregion
 
             #region 字符串生成图片
@@ -244,7 +246,7 @@ namespace Alroy.ConsoleApp
             #endregion
 
             #region 图片等比缩放
-            Image signImg = Image.FromFile(@"E:\Reptile\yj.jpg");
+            //Image signImg = Image.FromFile(@"E:\Reptile\yj.jpg");
             //int width = signImg.Width;
             //int height = signImg.Height;
             //Console.WriteLine("width:" + width);
@@ -267,18 +269,17 @@ namespace Alroy.ConsoleApp
             #endregion
 
             #region 拼接图片-上下
-            Image img2 = Image.FromFile(@"E:\Reptile\dtImage1Pro.jpg");
-            int imgHeight = 0, imgWidth = 0;
-            imgWidth = signImg.Width;
-            imgHeight = signImg.Height + img2.Height;
-            Bitmap joinedBitmap = new Bitmap(imgWidth, imgHeight);
-            Graphics graph = Graphics.FromImage(joinedBitmap);
-            graph.DrawImage(signImg, 0, 0, signImg.Width, signImg.Height);
-            graph.DrawImage(img2, 0, signImg.Height, img2.Width, img2.Height);
-            Image retImg = joinedBitmap;
-            retImg.Save(@"E:\Reptile\ret-noborder.jpg");
+            //Image img2 = Image.FromFile(@"E:\Reptile\dtImage1Pro.jpg");
+            //int imgHeight = 0, imgWidth = 0;
+            //imgWidth = signImg.Width;
+            //imgHeight = signImg.Height + img2.Height;
+            //Bitmap joinedBitmap = new Bitmap(imgWidth, imgHeight);
+            //Graphics graph = Graphics.FromImage(joinedBitmap);
+            //graph.DrawImage(signImg, 0, 0, signImg.Width, signImg.Height);
+            //graph.DrawImage(img2, 0, signImg.Height, img2.Width, img2.Height);
+            //Image retImg = joinedBitmap;
+            //retImg.Save(@"E:\Reptile\ret-noborder.jpg");
             #endregion
-
 
             #endregion
 
@@ -382,6 +383,14 @@ namespace Alroy.ConsoleApp
             //string newTwoFilePath = @"E:\SCP\" + id + "-newTwo.jpg";
             //newTwoImage.Save(newTwoFilePath);
             //Console.WriteLine(newTwoFilePath);
+            #endregion
+
+            #region 二维码转解析
+            ThoughtWorks.QRCode.Codec.QRCodeDecoder decoder = new ThoughtWorks.QRCode.Codec.QRCodeDecoder();
+            String fileName = @"E:\Reptile\qrcode.png";
+            Bitmap bm = new Bitmap(fileName);
+            String decodedString = decoder.decode(new QRCodeBitmapImage(bm));
+            Console.WriteLine(decodedString);
             #endregion
 
             #region httpClient预警信息
@@ -647,7 +656,6 @@ namespace Alroy.ConsoleApp
             //Console.ReadKey();
             #endregion
 
-
             #region AngleSharp
             //AngelSharpModel.GetH5Async("http://www.xiuren.org/XiuRen-N02345.html");
 
@@ -660,37 +668,35 @@ namespace Alroy.ConsoleApp
             //Console.ReadKey();
             #endregion
 
-            //string[] CbfsList = { };
-            //string text = "脱硫,脱硝,除尘,水务,氢能,光热,固废,环保其他类";
-            //text = text.Replace("脱硫", "01");
-            //text = text.Replace("脱硝", "02");
-            //text = text.Replace("除尘", "03");
-            //text = text.Replace("水务", "04");
-            //text = text.Replace("氢能", "05");
-            //text = text.Replace("光热", "06");
-            //text = text.Replace("固废", "07");
-            //text = text.Replace("环保其他类", "08");
-            //Console.WriteLine(text);
-
-            //ArrayList al = new ArrayList();
-            //al.Add(3);
-            //al.Add(14);
-            //al.Add(27);
-            //Console.WriteLine(Convert.ToInt32(al[0]));
-
-            //string str = "20比索";
-            //string str1 = "123.990";
-
-            //double d1 = 0;
-            //double.TryParse(str, out d1);
-
-            //double d2 = 0;
-            //double.TryParse(str1, out d2);
-
-            //Hashtable hs = new Hashtable();
-            //hs.Add("Id", "123421");
-            //hs.Add("Name", "2222");
-
+            #region 发票
+            //string filePath = "D:\\02-Project\\DBC\\011002000611-36465428.pdf";
+            //string fileSavePath = "D:\\02-Project\\DBC";
+            //if (File.Exists(filePath) && Path.GetExtension(filePath) == ".pdf")
+            //{
+            //    #region 获取发票上边的二维码图片和文件信息，解码获取二维码文本内容及文件信息放入不同的字典集合，最后合并到一个字典集合
+            //    using (Aspose.Pdf.Document pdfDocument = new Aspose.Pdf.Document(filePath))
+            //    {
+            //        if (pdfDocument.Pages[1].Resources.Images != null)
+            //        {
+            //            XImage image = pdfDocument.Pages[1].Resources.Images[1];
+            //            using (FileStream outputImage = new FileStream(fileSavePath + "\\1.jpg", FileMode.Create))
+            //            {
+            //                image.Save(outputImage, ImageFormat.Jpeg);
+            //            }
+            //        }
+            //    }
+            //    Bitmap bitmap = new Bitmap(fileSavePath + "\\1.jpg");
+            //    BarcodeReader reader = new BarcodeReader();
+            //    reader.Options.CharacterSet = "UTF-8";
+            //    Result s = reader.Decode(bitmap);
+            //    string Code = s.ToString().Split(',')[2];
+            //    string Num = s.ToString().Split(',')[3];
+            //    string Time = s.ToString().Split(',')[5];
+            //    string Amount = s.ToString().Split(',')[4];
+            //    string NSNum = s.ToString().Split(',')[6];
+            //    #endregion
+            //}
+            #endregion
             Console.ReadKey();
 
         }
