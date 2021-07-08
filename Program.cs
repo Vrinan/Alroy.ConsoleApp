@@ -159,6 +159,24 @@ namespace Alroy.ConsoleApp
             //}
             #endregion
 
+            #region 通过url下载图片
+            //string fileName = "xiuren1.jpg";
+            //string WebUrl = "http://www.xiuren.org/images/2017/03/2600838702.jpg";
+            //string LocalPath = @"E:\Reptile\";
+
+            //if (File.Exists(LocalPath + fileName))
+            //{
+            //    File.Delete(LocalPath + fileName);
+            //}
+            //if (Directory.Exists(LocalPath) == false)
+            //{
+            //    Directory.CreateDirectory(LocalPath);
+            //}
+
+            //var client = new WebClient();
+            //client.DownloadFile(WebUrl, LocalPath + fileName);
+            #endregion
+
             #region 获取文件真实类型
             //string path = @"C:\Users\Alroy\Pictures\Strangestone\01.jpg";
             //System.IO.FileStream fs = new System.IO.FileStream(path, System.IO.FileMode.Open, System.IO.FileAccess.Read);
@@ -386,11 +404,11 @@ namespace Alroy.ConsoleApp
             #endregion
 
             #region 二维码转解析
-            ThoughtWorks.QRCode.Codec.QRCodeDecoder decoder = new ThoughtWorks.QRCode.Codec.QRCodeDecoder();
-            String fileName = @"E:\Reptile\qrcode.png";
-            Bitmap bm = new Bitmap(fileName);
-            String decodedString = decoder.decode(new QRCodeBitmapImage(bm));
-            Console.WriteLine(decodedString);
+            //ThoughtWorks.QRCode.Codec.QRCodeDecoder decoder = new ThoughtWorks.QRCode.Codec.QRCodeDecoder();
+            //String fileName = @"E:\Reptile\qrcode.png";
+            //Bitmap bm = new Bitmap(fileName);
+            //String decodedString = decoder.decode(new QRCodeBitmapImage(bm));
+            //Console.WriteLine(decodedString);
             #endregion
 
             #region httpClient预警信息
@@ -668,34 +686,47 @@ namespace Alroy.ConsoleApp
             //Console.ReadKey();
             #endregion
 
-            #region 发票
-            //string filePath = "D:\\02-Project\\DBC\\011002000611-36465428.pdf";
-            //string fileSavePath = "D:\\02-Project\\DBC";
-            //if (File.Exists(filePath) && Path.GetExtension(filePath) == ".pdf")
+
+            #region DateTime.TryParse
+            ////进场时间
+            //string jcsj = "2020/5/3";
+            ////string jcsj = "----";
+            ////日期字段
+            //if (DateTime.TryParse(jcsj, out DateTime formatjcsj))
             //{
-            //    #region 获取发票上边的二维码图片和文件信息，解码获取二维码文本内容及文件信息放入不同的字典集合，最后合并到一个字典集合
-            //    using (Aspose.Pdf.Document pdfDocument = new Aspose.Pdf.Document(filePath))
-            //    {
-            //        if (pdfDocument.Pages[1].Resources.Images != null)
-            //        {
-            //            XImage image = pdfDocument.Pages[1].Resources.Images[1];
-            //            using (FileStream outputImage = new FileStream(fileSavePath + "\\1.jpg", FileMode.Create))
-            //            {
-            //                image.Save(outputImage, ImageFormat.Jpeg);
-            //            }
-            //        }
-            //    }
-            //    Bitmap bitmap = new Bitmap(fileSavePath + "\\1.jpg");
-            //    BarcodeReader reader = new BarcodeReader();
-            //    reader.Options.CharacterSet = "UTF-8";
-            //    Result s = reader.Decode(bitmap);
-            //    string Code = s.ToString().Split(',')[2];
-            //    string Num = s.ToString().Split(',')[3];
-            //    string Time = s.ToString().Split(',')[5];
-            //    string Amount = s.ToString().Split(',')[4];
-            //    string NSNum = s.ToString().Split(',')[6];
-            //    #endregion
+            //    Console.WriteLine(formatjcsj);
             //}
+            //else
+            //{
+            //    //赋值空
+            //    Console.WriteLine("赋值空");
+            //}
+            #endregion
+
+            #region 身份证号取年龄
+            //string idCard = "62282619950306191X";
+            //int age = 0;
+            //if (!string.IsNullOrWhiteSpace(idCard))
+            //{
+            //    var subStr = string.Empty;
+            //    if (idCard.Length == 18)
+            //    {
+            //        subStr = idCard.Substring(6, 8).Insert(4, "-").Insert(7, "-");
+            //    }
+            //    else if (idCard.Length == 15)
+            //    {
+            //        subStr = ("19" + idCard.Substring(6, 6)).Insert(4, "-").Insert(7, "-");
+            //    }
+            //    TimeSpan ts = DateTime.Now.Subtract(Convert.ToDateTime(subStr));
+            //    age = ts.Days / 365;
+            //}
+            //Console.WriteLine(age);
+            #endregion
+
+            #region 
+            Random rd = new Random();
+            int ret = rd.Next(0, 100);
+            Console.WriteLine(ret);
             #endregion
             Console.ReadKey();
 
